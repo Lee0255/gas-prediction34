@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Prediction Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gas Prediction Form</h1>
+
+    <label for="gasType">Enter the gas you have (e.g., ch4, co2, nitrous): </label>
+    <input type="text" id="gasType" name="gasType" required>
+    <button onclick="predict()">Predict</button>
+
+    <h2>Prediction Result:</h2>
+    <p id="predictionResult"></p>
+
+    <script>
+        function predict() {
+            var user_input = document.getElementById("gasType").value.toLowerCase();
+            var predictionResultElement = document.getElementById("predictionResult");
+
+            if (user_input === 'ch4') {
+                predictionResultElement.innerText = "You can produce Methanol.";
+            } else if (user_input === 'co2') {
+                predictionResultElement.innerText = "You can produce Methane to Green Hydrogen.";
+            } else {
+                predictionResultElement.innerText = "Not compatible. Can not produce anything from it. It will be filtered.";
+            }
+
+            // Assuming you have a trained model and LabelEncoder in Python
+            // You'll need to implement the model prediction and label decoding in JavaScript
+            // Example: Call a server endpoint to get predictions or use a pre-trained model
+            // Update the predicted label in the HTML
+            // Example:
+            // var predictedLabel = callServerEndpoint(user_input); // You need to implement this function
+            // predictionResultElement.innerText = "Predicted Label: " + predictedLabel + " for Fuel Source: " + user_input;
+        }
+    </script>
+</body>
+</html>
+
+
